@@ -1,8 +1,15 @@
+import Container from "react-bootstrap/Container";
+import Navbar from "react-bootstrap/Navbar";
 
-
-export default function Header() {
+function Header() {
   return (
-    <h1>Robins Gaming Hub</h1>
+    <Navbar data-bs-theme='dark' className='header'>
+      <Container >
+          <Navbar.Brand >Robins Gaming Hub</Navbar.Brand>
+      </Container>
+    </Navbar>
+
   )
 }
 
+export default Header;

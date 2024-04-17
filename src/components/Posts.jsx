@@ -193,7 +193,7 @@ export default function Posts() {
         <h2>Posts</h2>
 
         {posts.map((post, i) => {
-                return <SinglePost post={post} key={i}/>
+                return post.author.username !== 'foo' && <SinglePost post={post} key={i}/>
     })} 
     </>
   )
