@@ -26,7 +26,7 @@ export default function App(){
     <Route path='/login' element={<LoginPage />} />
     <Route path='/register' element={<RegisterPage />} />
     <Route path='/users' element={<UsersPage />} />
-    <Route path='/user' element={<SingleUserPage />} />
+    <Route path='/user/:username' element={<SingleUserPage />} />
     <Route path='/feed' element={<FeedPage />} />
     
     </Routes>

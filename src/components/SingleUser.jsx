@@ -3,3 +3,5 @@ const SingleUser = () => {
         <div>Single User</div>
     )
 }
+
+export default SingleUser
