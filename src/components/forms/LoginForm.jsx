@@ -1,22 +1,19 @@
 
-import { useEffect, useState } from "react";
-
+import { useState } from "react";
 import Container from "react-bootstrap/Container"
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import Modal from "react-bootstrap/Modal"; 
+import Button from 'react-bootstrap/Button';
 
 
 
 export default function LoginForm() {
 
+    const navigate = useNavigate();
     const [userLogin, setUserLogin] = useState({ username: '', password: '' });
+    const [showModal, setShowModal] = useState(false);
     const [loginStatus, setLoginStatus] = useState(null);
     
-    useEffect(() => {
-        if (userLogin.username) {
-            loginUser();
-            setUserLogin({ username: '', password: '' })
-        }
-    }, [userLogin]);
 
     async function loginUser(userOb) {
         const res = await fetch('http://127.0.0.1:5000/login', {
@@ -27,20 +24,36 @@ export default function LoginForm() {
         if (res.ok) {
             const data = await res.json();
             console.log(data.access_token);
-            Navigate('/user')
+            navigate('/user')
         } else console.error("Failed to login")
-    }
+    };
 
 
     function handleLoginFormSubmit(e) {
         e.preventDefault();
-        const loginElement = e.currentTarget;
-        const loginForm = new FormData(loginElement);
-        console.log(loginForm.get('username'));
-        setUserLogin(Object.fromEntries('loginForm'));
-    }
+        const formData = new FormData(e.target);
+        const username = formData.get('username');
+        const password = formData.get('password')
+        setUserLogin({ username, password });
+        loginUser({ username, password });
+    };
+    const handleModalClose = () => {
+        setShowModal(false);
+    };
 
     return (
+        <>
+        <Modal show={showModal} onHide={handleModalClose}>
+            <Modal.Header closeButton>
+            <Modal.Title>Success</Modal.Title>
+            </Modal.Header>
+            <Modal.Body>You've successfully logged in!</Modal.Body>
+            <Modal.Footer>
+                <Button cariant="primary" onClick={handleModalClose}>
+                    OK
+                </Button>
+            </Modal.Footer>
+        </Modal>
         <Container>
             <h3>Log In Page</h3>
             <form action="" onSubmit={handleLoginFormSubmit}>
@@ -52,11 +65,7 @@ export default function LoginForm() {
 
                 <input type="submit" name="Login" value="Login" />
             </form>
-            {loginStatus && (
-                <Alert variant={loginStatus.type === 'success' ? 'success' : 'danger'}>
-                    {loginStatus.message}
-                </Alert>
-            )}
         </Container>
+        </>
     )
 }
