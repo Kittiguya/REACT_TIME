@@ -14,3 +14,5 @@ export default function Gamers() {
   )
 }
 
+// this serves no purpose. Its a placeholder? I dont know why this is here tbh
+// it was probably an attempt at a spin off idea instead of the current one.
