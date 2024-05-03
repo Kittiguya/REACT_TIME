@@ -18,12 +18,12 @@ function Header({ user }) {
             
           </Navbar.Brand>
         ) : (
-          <Navbar.Brand >Robins Gaming Hub</Navbar.Brand>
+          <Navbar.Brand >Gaming Hub</Navbar.Brand>
           )}
-          <NavLink as={Link} to={'/register'}>Register</NavLink>
-          <NavLink as={Link} to={'/login'}>Login</NavLink>
           <NavLink as={Link} to={'/'}>Home</NavLink>
-          <NavLink as={Link} to={`/MyPage`}>My Page</NavLink>          
+          <NavLink as={Link} to={`/MyPage`}>My Page</NavLink> 
+          <NavLink as={Link} to={'/login'}>Login</NavLink>
+          <NavLink as={Link} to={'/register'}>Register</NavLink>           
       </Container>
     </Navbar>
 

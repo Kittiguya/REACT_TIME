@@ -10,7 +10,7 @@ export default function Gamers() {
 
 
   return (
-    <p>Player: { player }</p>
+    <p>My Page</p>
   )
 }
 

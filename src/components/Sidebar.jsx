@@ -11,10 +11,11 @@ const Sidebar = () => {
       <Nav.Item>
         <Nav.Link as={ Link } to='/'>Home</Nav.Link>
       </Nav.Item>
-      {/* {<Link to="/feed"><button>A different way to get to feed</button></Link>  /*(no reload just re-render) */}
+      <br/>
       <Nav.Item>
-        <Nav.Link as={Link} to='/feed'>Feed</Nav.Link>
+        <Nav.Link as={Link} to='/feed'>Clips</Nav.Link>
       </Nav.Item>
+      <br/>
       <Nav.Item>
         <Nav.Link as={Link} to='/users'>Users</Nav.Link>
       </Nav.Item>

@@ -5,11 +5,10 @@ const Users = () => {
 
   const [users, setUsers] = useState([]);
 
-  useEffect(()=>{
-    (async ()=>{
-      await getUsers();
-    })
-  },[])
+  useEffect(() => {
+    getUsers();
+  }, []);
+
 
   async function getUsers(){
     const res = await fetch('http://127.0.0.1:5000/users',{})
@@ -23,7 +22,7 @@ const Users = () => {
 
   return (
     <div>
-        {users.map(()=> <p key={i}>{users.username}</p>)}
+        {users.map((user, i) => <p key={i}>{user.username}</p>)}
     </div>
   )
 }
