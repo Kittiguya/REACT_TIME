@@ -1,1 +1,0 @@
-# Public Medal API Key Created: pub_PR3i0lmK7t8zQJdjEsiwLCDiSTODU0jx
