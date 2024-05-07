@@ -1,40 +1,81 @@
 // This is the page that when you click "my profile", or your "name" will
 // redirect you to your page to see your profile/clips/posts
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { checkUserAuthentication, fetchUserData } from '../assets/utils';
+import { logoutUser } from '../assets/LogoutService';
 
 const MyPage = () => {
-
   const [userData, setUserData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+
+ 
+
 
   useEffect(() => {
-    // Fetch user data from API or set userData with stored data
     const fetchData = async () => {
       try {
-        // Example API call using fetch
-        const response = await fetch('http://localhost:5173/user');
+        const accessToken = localStorage.getItem('accessToken');
+        if (!accessToken) {
+          navigate('/login');
+          return;
+        }
+
+        setIsLoading(true);
+        setError(null);
+
+        const response = await fetch('https://api.stytch.com/v1/public/users', {
+          headers: {
+            'Content-Type': 'application/json',
+            'Public-Medal-API-Key': 'pub_PR3i0lmK7t8zQJdjEsiwLCDiSTODU0jx',
+          },
+        });
         const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(`HTTP error ${response.status}`);
+        }
+
         setUserData(data);
       } catch (error) {
+        setError(`Error fetching user data: ${error.message}`);
         console.error('Error fetching user data:', error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
-    fetchData(); // Call the fetchData function when component mounts
-  }, []);
+    fetchData();
+  }, [navigate]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return (
+      <div>
+        <p>{error}</p>
+        <button onClick={() => window.location.reload()}>Retry</button>
+      </div>
+    );
+  }
 
   return (
     <div className="MyPage">
-      <h1>Welcome to My Page</h1>
-      {user ? (
+      <h1>Welcome to {userData ? `${userData.username}'s Page` : 'My Page'}</h1>
+      {userData ? (
         <div className="user-profile">
-          <h2>{user.username}</h2>
-
-          {/* Render other user data as needed */}
+          <h2>{userData.username}</h2>
         </div>
       ) : (
-        <p>Loading user data...</p>
+        <h3>This is being built out. Check back later!</h3>
       )}
     </div>
+    
+    
   );
 };
 

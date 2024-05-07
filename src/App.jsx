@@ -2,7 +2,7 @@
 import Container from "react-bootstrap/Container";
 
 
-import Gamers from "./components/Gamers";
+
 import Header from "./components/Header";
 import FeedPage from "./pages/FeedPage";
 import LandingPage from "./pages/LandingPage";
@@ -11,6 +11,8 @@ import RegisterPage from "./pages/RegisterPage";
 import SingleUserPage from "./pages/SingleUserPage";
 import UsersPage from "./pages/UsersPage";
 import { Route, Routes } from "react-router-dom";
+import MyPage from "./pages/MyPage";
+
 
 export default function App(){
 
@@ -28,6 +30,7 @@ export default function App(){
     <Route path='/users' element={<UsersPage />} />
     <Route path='/user/:username' element={<SingleUserPage />} />
     <Route path='/feed' element={<FeedPage />} />
+    <Route path='/MyPage' element={<MyPage />} />
     
     </Routes>
 

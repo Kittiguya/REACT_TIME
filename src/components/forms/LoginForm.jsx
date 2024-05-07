@@ -23,8 +23,8 @@ export default function LoginForm() {
         })
         if (res.ok) {
             const data = await res.json();
-            console.log(data.access_token);
-            navigate('/user')
+            localStorage.setItem('accessToken', data.access_token);
+            navigate('/MyPage')
         } else console.error("Failed to login")
     };
 
@@ -55,6 +55,7 @@ export default function LoginForm() {
             </Modal.Footer>
         </Modal>
         <Container>
+        <p1> Please login to Continue!</p1>
             <h3>Log In Page</h3>
             <form action="" onSubmit={handleLoginFormSubmit}>
                 <label htmlFor="username">Username</label><br />

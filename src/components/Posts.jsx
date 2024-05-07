@@ -35,3 +35,5 @@ export default function Posts() {
 }
 
 
+// IM pulling info using APis mostly. THis is probably going to be removed
+// Thinking i dont really dont need this.
