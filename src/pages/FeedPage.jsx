@@ -1,10 +1,16 @@
 import Body from "../components/Body"
+import GameClipsComponent from "../components/GameClips";
+
 
 export default function FeedPage() {
   return (
-    <Body sidebar={true}>Clips Page</Body>
-  )
+    <Body sidebar={true}>
+      <GameClipsComponent />
+    </Body>
+  );
 }
+
+
 
 
 // this in theory for the start should display all the clips on platform

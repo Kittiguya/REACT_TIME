@@ -6,15 +6,14 @@ import Navbar from "react-bootstrap/Navbar";
 
 
 
-function Header({ user }) {
+function Header({ users }) {
   return (
     <Navbar data-bs-theme='dark' className='header'>
       <Container >
-        { user ? (
+        { users ? (
           <Navbar.Brand>
-            {user.first_name && user.last_name
-              ? `${user.first_name} ${user.last_name}'s Gaming hub`
-              : `${user.username}'s Gaming Hub`}
+            {users.first_name && users.last_name
+               `${users.username}'s Gaming Hub`}
             
           </Navbar.Brand>
         ) : (

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { checkUserAuthentication, fetchUserData } from '../assets/utils';
 import { logoutUser } from '../assets/LogoutService';
+import Users from '../components/Users';
 
 const MyPage = () => {
   const [userData, setUserData] = useState(null);
@@ -65,10 +66,10 @@ const MyPage = () => {
 
   return (
     <div className="MyPage">
-      <h1>Welcome to {userData ? `${userData.username}'s Page` : 'My Page'}</h1>
-      {userData ? (
+      <h1>Welcome to {Users ? `${Users.username}'s Page` : 'My Page'}</h1>
+      {Users ? (
         <div className="user-profile">
-          <h2>{userData.username}</h2>
+          <h2>{Users.username}</h2>
         </div>
       ) : (
         <h3>This is being built out. Check back later!</h3>
