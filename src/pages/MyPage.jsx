@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { checkUserAuthentication, fetchUserData } from '../assets/utils';
 import { logoutUser } from '../assets/LogoutService';
-import Users from '../components/Users';
 
 const MyPage = () => {
   const [userData, setUserData] = useState(null);
@@ -27,7 +26,7 @@ const MyPage = () => {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch('https://api.stytch.com/v1/public/users', {
+        const response = await fetch('', {
           headers: {
             'Content-Type': 'application/json',
             'Public-Medal-API-Key': 'pub_PR3i0lmK7t8zQJdjEsiwLCDiSTODU0jx',
@@ -66,10 +65,10 @@ const MyPage = () => {
 
   return (
     <div className="MyPage">
-      <h1>Welcome to {Users ? `${Users.username}'s Page` : 'My Page'}</h1>
-      {Users ? (
+      <h1>Welcome to {users ? `${users.username}'s Page` : 'My Page'}</h1>
+      {users ? (
         <div className="user-profile">
-          <h2>{Users.username}</h2>
+          <h2>{users.username}</h2>
         </div>
       ) : (
         <h3>This is being built out. Check back later!</h3>

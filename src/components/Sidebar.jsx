@@ -13,7 +13,7 @@ const Sidebar = () => {
       </Nav.Item>
       <br/>
       <Nav.Item>
-        <Nav.Link as={Link} to='/feed'>Clips</Nav.Link>
+        <Nav.Link as={Link} to='/feed'>Top Clips</Nav.Link>
       </Nav.Item>
       <br/>
       <Nav.Item>

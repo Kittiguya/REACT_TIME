@@ -2,7 +2,7 @@
 .app {
     background-color: rgba(3, 0, 14, 0.945);
     color: white;
-    height: 200vh;
+    height: 100%;
 }
 
 .sidebar {
@@ -12,6 +12,7 @@
     top: 62px;
     align-self: flex-start;
     align-items: start;
+    flex-direction: column;
 }
 
 .main-heading{

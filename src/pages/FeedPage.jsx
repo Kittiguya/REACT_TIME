@@ -1,5 +1,5 @@
 import Body from "../components/Body"
-import GameClipsComponent from "../components/GameClips";
+import GameClipsComponent from "../components/TopGameClips";
 
 
 export default function FeedPage() {
