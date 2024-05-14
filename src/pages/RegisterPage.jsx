@@ -6,6 +6,8 @@ export default function RegisterPage() {
   return (
     <Body siderbar={false}>
         <RegisterForm></RegisterForm>
+        
     </Body>
+    
   )
 }

@@ -21,5 +21,34 @@
 }
 
 .video-player{
-    border: 5px solid black;
+    border: solid pink 1px;
+    width: 1200px;
+    height: 400px;
 }
+
+.trending{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.clip-container{
+    border: green solid 1px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: right;
+    margin: 10px;
+    max-width: 900px;
+    max-height: 800px;
+}
+
+.clip-details {
+    border: solid 1px blue;
+    display: flexbox;
+    align-items: center;
+  }
+
+  .home {
+    border: 1px blue solid;
+    display: inline-flex;
+    justify-content: end;
+  }

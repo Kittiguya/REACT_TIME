@@ -5,9 +5,9 @@ import Body from "../components/Body"
 
 export default function LandingPage() {
   return (
-    <Container>
+    <Container >
     <Body sidebar={false}>Home Page</Body>
-
+    <Container className="home flex-box">
     <p>This is an app that will be a template for similar uses</p>
     <h1>
       The purpose of this version is to have a user login/register, then they can pull
@@ -19,6 +19,7 @@ export default function LandingPage() {
       will be linked to the appropriated store pages.
       Hopeful to add some developer information added onto the game info.
     </h1>
+    </Container>
     </Container>
   )
 }

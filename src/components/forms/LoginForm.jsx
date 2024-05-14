@@ -15,7 +15,7 @@ export default function LoginForm() {
 
     async function loginUser(userOb) {
         try {
-            const res = await fetch('http://localhost:5173/login', {
+            const res = await fetch('http://127.0.0.1:5000/users', {
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -26,7 +26,7 @@ export default function LoginForm() {
             if (res.ok) {
                 localStorage.setItem('accessToken', data.access_token);
                 setShowModal(true);
-                navigate('/MyPage');
+                navigate('/users');
             } else {
                 console.error("Failed to login:", data.message);
                 setLoginStatus(data.message);

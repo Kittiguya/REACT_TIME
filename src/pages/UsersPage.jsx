@@ -4,7 +4,7 @@ import Users from "../components/Users"
 
 export default function UsersPage() {
   return (
-    <Body siderbar>
+    <Body sidebar>
         <Users />
     </Body>
   )

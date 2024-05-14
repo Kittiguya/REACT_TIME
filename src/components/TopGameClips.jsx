@@ -47,17 +47,18 @@ const GameClipsComponent = (slug) => {
     }
 
     return (
-        <div>
-            <h2>Top Clips</h2>
+        <div className="trending flex-box">
             {topClips.length > 0 ? (
                 topClips.map((clip, index) => (
-                    <div key={index}>
-                        <p>Title: {clip.contentTitle}</p>
-                        <p>Views: {clip.contentViews}</p>
-                        <p>Likes: {clip.contentLikes}</p>
-                        <p>Game: {clip.contentName}</p>
+                    <div key={index} className="clip-container">
                         <div className="video-player">
                             <div dangerouslySetInnerHTML={{ __html: clip.embedIframeCode }} />
+                        </div>
+                        <div className="clip-details">
+                            <p>Title: {clip.contentTitle}</p>
+                            <p>Views: {clip.contentViews}</p>
+                            <p>Likes: {clip.contentLikes}</p>
+                            <p>Game: {clip.contentName}</p>
                         </div>
                     </div>
                 ))

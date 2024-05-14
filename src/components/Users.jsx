@@ -22,9 +22,12 @@ const Users = () => {
 
   return (
     <div>
-        {users.map((user, i) => <p key={i}>{user.username}</p>)}
+      <h1>
+        {users.map((users, i) => <p key={i}>{users.username}</p>)}
+      </h1>
     </div>
   )
 }
 
 export default Users
+
